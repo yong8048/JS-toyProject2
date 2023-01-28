@@ -1,2 +1,2 @@
 # JS-toyProject2
-Do Making Scroll Event With Only Vanilla JS And Hang Man Game 
+Do making scroll event with only Vanilla JS And Hang Man Game 
