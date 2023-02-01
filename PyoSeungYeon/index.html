@@ -19,5 +19,61 @@
     <script defer src="./js/main.js"></script>
   </head>
 
-  <body></body>
+  <body>
+    <header class="gnb" id="section-home">
+      <nav class="gnb-nav">
+        <div class="inner">
+          <img class="logo" src="./images/logo.svg" alt="logo" />
+
+          <ul class="nav-list" role="tablist">
+            <li class="nav-item" role="tab" aria-labelledby="section-home">
+              <button type="button">home</button>
+            </li>
+
+            <li class="nav-item" role="tab" aria-labelledby="section-about">
+              <button type="button">about</button>
+            </li>
+
+            <li class="nav-item" role="tab" aria-labelledby="section-services">
+              <button type="button">services</button>
+            </li>
+
+            <li class="nav-item" role="tab" aria-labelledby="section-tours">
+              <button type="button">tours</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="gnb-contents">
+        <h1>scroll project</h1>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas eos
+          neque sunt in? Id, necessitatibus quos quisquam distinctio laudantium
+          fugiat?
+        </p>
+
+        <button type="button">explore tours</button>
+      </div>
+    </header>
+
+    <section class="section about" role="tabpanel" id="section-about">
+      about us
+    </section>
+
+    <section class="section services" role="tabpanel" id="section-services">
+      our services
+    </section>
+
+    <section class="section tours" role="tabpanel" id="section-tours">
+      featured tours
+    </section>
+
+    <footer class="footer">
+      <p>
+        Copyright © Backroads Travel Tours Company 2023. All Rights Reserved
+      </p>
+    </footer>
+  </body>
 </html>
