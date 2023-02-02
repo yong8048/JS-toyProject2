@@ -1,0 +1,165 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  position: relative;
+}
+
+header .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+}
+
+header .nav .logo {
+  font-weight: 600;
+}
+
+header .nav .logo span {
+  display: inline-block;
+  font-size: 1.1rem;
+}
+
+header .nav .menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 0;
+  visibility: hidden;
+  transition: height 0.4s ease;
+}
+
+header .nav .menu.onToggle {
+  visibility: visible ;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  height: 100vh;
+}
+
+@media (min-width: 760px) {
+
+}
+
+header .nav .menu li {
+  padding: 5rem 2rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+header .nav .menu li.onToggle {
+  transform: translateX(0%);
+}
+
+header .nav .menu.toggle {
+  
+}
+
+header .nav .menu.toggle li {
+  
+}
+
+header .nav .toggleBtn {
+  cursor: pointer;
+}
+
+header .nav .toggleBtn > div {
+  width: 30px;
+  height: 6px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  background-color: black;
+}
+
+header .nav .toggleBtn > .toggle1, 
+header .nav .toggleBtn > .toggle3 {
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+  transition-delay: 0.6s;
+}
+
+header .nav .toggleBtn > .toggle2{
+  animation: unToggleBtn 0.3s ease forwards;
+  
+}
+
+
+
+header .nav .toggleBtn > .toggle1.onToggle{
+  transform: translateY(8px) rotateZ(45deg);
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+  transition-delay: 0s;
+}
+
+header .nav .toggleBtn > .toggle2.onToggle{
+ animation: toggleBtn 0.3s ease forwards;
+}
+@keyframes toggleBtn {
+  50% {
+    transfrom: scale(0.1);
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+@keyframes unToggleBtn {
+  50% {
+    transform: scale(0.1);
+    visibility: visible;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+header .nav .toggleBtn > .toggle3.onToggle{
+  transform: translateY(-10px) rotateZ(-45deg);
+}
+
+main {
+  
+}
+
+main .slide-container {
+  width: 100%;
+  height: 100vh;
+}
+
+main .slide-container .slides {
+  
+}
+
+main .slide-container .slides li {
+  
+}
+
+main .slide-container .slides li img {
+  
+}
+
+main .slide-container .pagenation {
+  
+}
+
+main .slide-container .prev-btn {
+  
+}
+
+main .slide-container .next-btn {
+  
+}
+
+main .hangman-container {
+  width: 100%;
+  height: 100vh;
+}
+
