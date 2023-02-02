@@ -1,21 +1,58 @@
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
   color: black;
 }
 
+
+button {
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+button:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid transparent;
+}
 header {
-  position: relative;
+  top: 0;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  height: 4rem;
+  background-color: white;
+  transition: all 0.5s ease-out;
+}
+
+header.onScroll {
+  height: 3.5rem;
+  opacity: 0.7;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.6));
 }
 
 header .nav {
+  height: 100%;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 25px;
+  padding: 0 1rem;
 }
 
 header .nav .logo {
   font-weight: 600;
+  cursor: pointer;
+}
+
+header .nav .logo:hover, 
+header .nav .toggleBtn:hover {
+  opacity: 1;
 }
 
 header .nav .logo span {
@@ -25,23 +62,42 @@ header .nav .logo span {
 
 header .nav .menu {
   position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
   top: 100%;
   left: 0;
   width: 100%;
-  height: 0;
-  visibility: hidden;
-  transition: height 0.4s ease;
+  transition: transform 0.3s ease;
+  transform: translateY(-100vh);
 }
 
 header .nav .menu.onToggle {
-  visibility: visible ;
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  height: 100vh;
+  transform: translateY(0);
+  transition: transform 0.3s ease 0.8s;
 }
 
 @media (min-width: 760px) {
+  header .nav {
+    height: 3.5rem;
+  }
+  header .nav .menu {
+    background-color: transparent;
+    backdrop-filter: unset;
+    position: relative;
+    display: flex;
+    top: 0;
+    transform: translateY(0);
+    height: auto;
+  }
 
+  header .nav .menu li {
+    font-size: 1rem;
+    margin-right: 2vw;
+  }
+
+  header .nav .toggleBtn {
+    visibility: hidden;
+  }
 }
 
 header .nav .menu li {
@@ -49,12 +105,11 @@ header .nav .menu li {
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
+ 
 }
 
 header .nav .menu li.onToggle {
-  transform: translateX(0%);
+
 }
 
 header .nav .menu.toggle {
@@ -86,7 +141,7 @@ header .nav .toggleBtn > .toggle3 {
 }
 
 header .nav .toggleBtn > .toggle2{
-  animation: unToggleBtn 0.3s ease forwards;
+  animation: unToggleBtn 1s ease forwards;
   
 }
 
@@ -94,28 +149,31 @@ header .nav .toggleBtn > .toggle2{
 
 header .nav .toggleBtn > .toggle1.onToggle{
   transform: translateY(8px) rotateZ(45deg);
-  transition-property: all;
-  transition-timing-function: ease-in-out;
-  transition-duration: 0.3s;
-  transition-delay: 0s;
+
 }
 
 header .nav .toggleBtn > .toggle2.onToggle{
- animation: toggleBtn 0.3s ease forwards;
+ animation: toggleBtn 1s ease forwards;
 }
 @keyframes toggleBtn {
-  50% {
-    transfrom: scale(0.1);
+  0% {
+    transfrom: scaleX(1);
+  }
+  50%{
+    transform: scaleX(0.2);
+    border-radius: 50%;
   }
   100% {
-    visibility: hidden;
+    transform: translateY(-100px);
   }
 }
 
 @keyframes unToggleBtn {
+  0% {
+    transform: translateY(-100px) scaleX(0.2);
+  }
   50% {
-    transform: scale(0.1);
-    visibility: visible;
+    transform: translateY(0) scaleX(0.2);
   }
   100% {
     transform: scale(1);
@@ -126,40 +184,102 @@ header .nav .toggleBtn > .toggle3.onToggle{
 }
 
 main {
-  
+  margin-top: 4rem;
+}
+
+main > h1 {
+  font-weight: 600;
 }
 
 main .slide-container {
   width: 100%;
-  height: 100vh;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 main .slide-container .slides {
-  
+  width: 400px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 5px solid skyblue;
 }
 
 main .slide-container .slides li {
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s linear;
+}
+
+main .slide-container .slides li.loading {
+  background: linear-gradient(to right, skyblue 40%, #b1e9ff 45%, skyblue 55%);
+  background-size: 200% 200%;
+  animation: loading 2s linear infinite;
+}
+@keyframes loading {
+  0% {
+    background-position: 0 0;
+  }
   
+  100% {
+    background-position: 200% 0;
+  }
+ 
 }
 
 main .slide-container .slides li img {
-  
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
-main .slide-container .pagenation {
-  
+main .slide-container .slides .buttons {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
 }
 
-main .slide-container .prev-btn {
-  
-}
-
-main .slide-container .next-btn {
-  
-}
 
 main .hangman-container {
+  background-color: black;
   width: 100%;
   height: 100vh;
 }
 
+@media (min-width: 760px) {
+   
+  header .nav .logo {
+    width: 200px
+  }
+
+  header .nav .menu {
+    background-color: transparent;
+    backdrop-filter: unset;
+    position: relative;
+    display: flex;
+    top: 0;
+    transform: translateY(0);
+    height: auto;
+  }
+
+  header .nav .menu li {
+    font-size: 1rem;
+    margin-right: 2vw;
+  }
+
+  header .nav .toggleBtn {
+    display: none;
+  }
+}
