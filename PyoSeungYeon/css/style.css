@@ -92,8 +92,52 @@ body {
 }
 
 .section.about,
-.section.tours {
+.section.images {
   background-color: #f1f5f8;
+}
+
+.section.images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section.images .carousel {
+  width: 700px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.section.images .carousel .slider-list {
+  display: inline-flex;
+  transition: transform 300ms ease-in-out;
+}
+
+.section.images .carousel .slider-list .slider-item {
+}
+
+.section.images .carousel .slider-list .slider-item img {
+  display: block;
+  width: 700px;
+  height: 300px;
+}
+
+.section.images .btn-group {
+  display: flex;
+}
+
+.section.images .btn {
+  padding: 6px 24px;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+.section.images .btn.btn-prev {
+  margin-right: 12px;
+}
+
+.section.images .btn.btn-next {
 }
 
 .footer {
