@@ -1,0 +1,29 @@
+*,
+*::after,
+*::before{
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+body{
+  width: 100%;
+}
+
+.wrap{
+  width: 90%;
+}
+
+header{
+  
+}
+
+header h1{
+
+}
+
+header h1 img{
+  width: 280px;
+}
