@@ -1,9 +1,21 @@
+// SCROLL
+const slide = document.querySelector('#slide')
+const hangman = document.querySelector('#hangman')
+
+slide.addEventListener('click',function(){
+  window.scrollTo(0,0)
+})
+hangman.addEventListener('click',function(){
+  window.scrollTo(0,720)
+})
+
+
+
+// SLIDE
 const slideEl = document.querySelectorAll(".slide")
 const prev = document.querySelector(".prev")
 const next = document.querySelector(".next")
 const slides = [...slideEl]
-
-console.log(slides)
 
 let count = 0
 
