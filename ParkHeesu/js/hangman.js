@@ -15,8 +15,8 @@ const playAgain = function(){
     liEl.textContent = `${word}`
     cards.append(liEl)
     liEl.addEventListener("click",function(e){
-      e.target.classList.add("active")
       check(e)
+      e.target.classList.add("active")
     })
   }
   play()
@@ -67,7 +67,6 @@ const play = function(){
     // 숨긴 단어 집어넣기
     guesses.push(liEl)
     word.append(liEl)
-    console.log(guesses)
   }
   
   // 문제 카테고리 표시
@@ -94,16 +93,17 @@ const play = function(){
 // 카드 선택
 const check = function(e){
   const guess = e.target.textContent.toUpperCase()
-  for(let i = 0; i < randWord.length; i++){
-    if(randWord[i]===guess){
-      guesses[i].innerHTML = guess
-      count+=1
+  if(e.target.className != "active"){
+    for(let i = 0; i < randWord.length; i++){
+      if(randWord[i]===guess){
+        guesses[i].innerHTML = guess
+        count+=1
+      }
     }
-  }
-  // 잘못된 카드 선택시 목숨 -1
-  console.log(randWord.indexOf(guess))
-  if(randWord.indexOf(guess)===-1){
-    lifes-=1
+    // 잘못된 카드 선택시 목숨 -1
+    if(randWord.indexOf(guess)===-1){
+      lifes-=1
+    }
   }
   life()
 }
@@ -113,12 +113,21 @@ const life = function(){ // 패배
   lifeEl.textContent=`LIFE: ${lifes}`
   if(lifes < 1){
     clearEl.textContent="...YOU LOSE..."
+    gameOver()
   }else{ // 승리
     for(let i=0; i < guesses.length; i++){
       if(count + space === guesses.length){
         clearEl.textContent="!!!YOU WIN!!!"
+        gameOver()
       }
     }
+  }
+}
+
+const gameOver = function(){
+  const card = document.querySelectorAll(".cards li")
+  for(let i of card){
+    i.classList.add("active")
   }
 }
 
