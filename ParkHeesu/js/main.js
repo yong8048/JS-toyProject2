@@ -6,7 +6,7 @@ slide.addEventListener('click',function(){
   window.scrollTo(0,0)
 })
 hangman.addEventListener('click',function(){
-  window.scrollTo(0,720)
+  window.scrollTo(0,730)
 })
 
 

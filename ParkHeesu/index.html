@@ -7,6 +7,7 @@
   <title>PROJECT</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <link rel="stylesheet" href="/ParkHeesu/css/main.css">
+  <script type="module" defer src="../ParkHeesu/js/hangman.js"></script>
   <script type="module" defer src="/ParkHeesu/js/main.js"></script>
 </head>
 <body>
@@ -47,10 +48,31 @@
           </div>
         </div>
       </section>
-      <section id="hangman" class="section-hangman">
-        <div class="inner">
+      <section class="section-hangman">
           <div class="hangman-container">
-            준비중
+            <div class="discription">
+              <h1>HANGMAN</h1>
+              <h2>Vanilla JavaScript Hangman</h2>
+              <p>알파벳 카드와 힌트를 이용하여, 해당 카테고리에 맞는 단어를 맞추세요!</p>
+            </div>
+            <div class="hangman-wrap inner">
+              <div class="alphabet-card">
+                <ul class="cards">
+                </ul>
+              </div>
+              <p class="category"></p>
+              <div class="holding">
+                <ul class="my-word">
+                </ul>
+              </div>
+              <p class="show-clear"></p>
+              <p class="life">LIFE: 10</p>
+              <p class="clue"></p>
+              <div class="play-btn">
+                <button class="hint btn">Hint</button>
+                <button class="play btn">Play again</button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
